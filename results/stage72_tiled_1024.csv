@@ -1,0 +1,4 @@
+implementation,M,N,K,tile_size,warmup,iterations,mean_latency_ms,gflops,max_abs_error,mean_abs_error,mismatch_count,reference
+naive_cuda,1024,1024,1024,0,10,50,1.02001,2105.36,7.24792e-05,4.53739e-06,0,cublas
+shared_tiled_cuda,1024,1024,1024,32,10,50,0.851927,2520.74,7.24792e-05,4.53739e-06,0,cublas
+cublas_pedantic_fp32,1024,1024,1024,0,10,50,0.131277,16358.4,0,0,0,none

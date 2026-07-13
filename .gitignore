@@ -1,0 +1,24 @@
+# Build
+/build/
+/cmake-build-*/
+
+# Executables
+/bin/
+
+# Profiling outputs
+*.ncu-rep
+*.nsys-rep
+*.qdrep
+*.sqlite
+
+# Temporary files
+*.log
+*.tmp
+
+# IDE
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc

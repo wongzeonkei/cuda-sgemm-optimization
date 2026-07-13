@@ -1,0 +1,40 @@
+========================================
+Stage 7.2 Shared Memory Tiling
+========================================
+M = 1024
+N = 1024
+K = 1024
+Tile size = 32 x 32
+Threads per block = 1024
+Warmup = 10
+Iterations = 50
+
+Naive CUDA
+  Mean latency: 1.020006 ms
+  Performance:  2105.362878 GFLOPS
+
+Shared Tiled CUDA
+  Mean latency: 0.851927 ms
+  Performance:  2520.736568 GFLOPS
+
+cuBLAS Pedantic FP32
+  Mean latency: 0.131277 ms
+  Performance:  16358.439785 GFLOPS
+
+Performance comparison
+  Tiled speedup over naive: 1.197293x
+  Tiled/cuBLAS ratio:       15.409395%
+
+Naive vs cuBLAS correctness
+  Max abs error:  7.2479248047e-05
+  Mean abs error: 4.5373902573e-06
+  Max rel error:  1.2474442470e+00
+  Mismatches:     0
+
+Tiled vs cuBLAS correctness
+  Max abs error:  7.2479248047e-05
+  Mean abs error: 4.5373902573e-06
+  Max rel error:  1.2474442470e+00
+  Mismatches:     0
+
+Saved CSV: results/stage72_tiled_1024.csv

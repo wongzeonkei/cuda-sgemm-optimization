@@ -51,3 +51,23 @@ target_compile_options(
     $<$<COMPILE_LANGUAGE:CUDA>:-O3>
     $<$<COMPILE_LANGUAGE:CXX>:-O3>
 )
+
+add_executable(
+    sgemm_stage72_tiled
+    src/sgemm_stage72_tiled.cu
+)
+
+target_link_libraries(
+    sgemm_stage72_tiled
+    PRIVATE
+    CUDA::cudart
+    CUDA::cublas
+)
+
+target_compile_options(
+    sgemm_stage72_tiled
+    PRIVATE
+    $<$<COMPILE_LANGUAGE:CUDA>:-O3>
+    $<$<COMPILE_LANGUAGE:CUDA>:-lineinfo>
+    $<$<COMPILE_LANGUAGE:CXX>:-O3>
+)
