@@ -72,3 +72,20 @@ The 512³ case is slower than the 1D register-tiled version because the
 128x128 block tile generates only 16 thread blocks. This is insufficient to
 occupy the 82 SMs of the RTX 3090. The large-tile kernel is primarily
 effective for medium and large matrices.
+
+## Nsight Compute Limitation
+
+Nsight Compute 2022.3 was invoked to profile the 4096³ two-dimensional
+register-tiled kernel. However, hardware performance-counter profiling was
+not supported by the current WSL environment, and no kernels were profiled.
+
+Therefore, the current resource analysis is based on:
+
+- PTXAS register and shared-memory reports
+- cudaFuncGetAttributes runtime information
+- CUDA Event performance measurements
+- Compute Sanitizer memory validation
+
+Detailed SM throughput, achieved occupancy, warp-stall and shared-memory
+bank-conflict measurements are deferred to a native Linux CUDA environment
+or another environment with supported Nsight Compute profiling.
