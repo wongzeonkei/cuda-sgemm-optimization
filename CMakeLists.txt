@@ -92,3 +92,24 @@ target_compile_options(
     $<$<COMPILE_LANGUAGE:CUDA>:-Xptxas=-v>
     $<$<COMPILE_LANGUAGE:CXX>:-O3>
 )
+
+add_executable(
+    sgemm_stage74_register2d
+    src/sgemm_stage74_register2d.cu
+)
+
+target_link_libraries(
+    sgemm_stage74_register2d
+    PRIVATE
+    CUDA::cudart
+    CUDA::cublas
+)
+
+target_compile_options(
+    sgemm_stage74_register2d
+    PRIVATE
+    $<$<COMPILE_LANGUAGE:CUDA>:-O3>
+    $<$<COMPILE_LANGUAGE:CUDA>:-lineinfo>
+    $<$<COMPILE_LANGUAGE:CUDA>:-Xptxas=-v>
+    $<$<COMPILE_LANGUAGE:CXX>:-O3>
+)

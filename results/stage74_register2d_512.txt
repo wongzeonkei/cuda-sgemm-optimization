@@ -1,0 +1,34 @@
+========================================
+Stage 7.4 2D Register Tiling
+========================================
+M = 512
+N = 512
+K = 512
+Block tile = 128 x 128
+K tile = 8
+Thread tile = 8 x 8
+Outputs per thread = 64
+Threads per block = 256
+Registers per thread = 124
+Static shared memory = 8320 bytes
+Local memory = 0 bytes
+Warmup = 10
+Iterations = 50
+
+2D register-tiled CUDA
+  Mean latency: 0.117965 ms
+  Performance:  2275.555475 GFLOPS
+
+cuBLAS Pedantic FP32
+  Mean latency: 0.025395 ms
+  Performance:  10570.322724 GFLOPS
+
+Register2D/cuBLAS ratio: 21.527777%
+
+Correctness vs cuBLAS
+  Max abs error:  3.2424926758e-05
+  Mean abs error: 2.4118309174e-06
+  Max rel error:  1.7342032967e-02
+  Mismatches:     0
+
+Saved CSV: results/stage74_register2d_512.csv

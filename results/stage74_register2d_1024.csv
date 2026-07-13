@@ -1,0 +1,3 @@
+implementation,M,N,K,BM,BN,BK,TM,TN,threads_per_block,registers_per_thread,static_shared_bytes,local_memory_bytes,warmup,iterations,mean_latency_ms,gflops,max_abs_error,mean_abs_error,mismatch_count,reference
+register_tiled_2d,1024,1024,1024,128,128,8,8,8,256,124,8320,0,10,50,0.306688,7002.18,7.24792e-05,4.53739e-06,0,cublas
+cublas_pedantic_fp32,1024,1024,1024,0,0,0,0,0,0,0,0,0,10,50,0.140739,15258.7,0,0,0,none
