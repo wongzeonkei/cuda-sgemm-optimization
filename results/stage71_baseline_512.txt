@@ -1,0 +1,37 @@
+========================================
+Stage 7.1 SGEMM Baseline
+========================================
+Matrix layout: row-major
+M = 512
+N = 512
+K = 512
+Warmup = 10
+Iterations = 50
+
+Naive CUDA
+  Mean latency: 0.134390 ms
+  Performance:  1997.439833 GFLOPS
+
+cuBLAS SGEMM (pedantic FP32)
+  Mean latency: 0.025477 ms
+  Performance:  10536.334135 GFLOPS
+
+Naive CUDA vs cuBLAS
+  Max abs error:  0.000032
+  Mean abs error: 0.000002
+  Max rel error:  0.017342
+  Mismatches:     0
+
+Running CPU reference...
+Naive CUDA vs CPU
+  Max abs error:  0.000010
+  Mean abs error: 0.000001
+  Mismatches:     0
+
+cuBLAS vs CPU
+  Max abs error:  0.000032
+  Mean abs error: 0.000002
+  Mismatches:     0
+
+Naive/cuBLAS performance ratio: 18.957636%
+Saved CSV: results/stage71_baseline_512.csv

@@ -1,0 +1,41 @@
+=== Date ===
+Mon Jul 13 21:13:35 CST 2026
+
+=== GPU ===
+NVIDIA GeForce RTX 3090, 566.24, 24576 MiB
+
+=== NVCC ===
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2022 NVIDIA Corporation
+Built on Wed_Sep_21_10:33:58_PDT_2022
+Cuda compilation tools, release 11.8, V11.8.89
+Build cuda_11.8.r11.8/compiler.31833905_0
+
+=== CUDA Host Compiler ===
+g++-11 (Ubuntu 11.5.0-1ubuntu1~24.04.1) 11.5.0
+
+=== System Default Compiler ===
+g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+
+=== CMake ===
+cmake version 3.28.3
+
+=== Nsight Compute ===
+NVIDIA (R) Nsight Compute Command Line Profiler
+Copyright (c) 2018-2022 NVIDIA Corporation
+Version 2022.3.0.0 (build 31729285) (public-release)
+
+=== Device Info ===
+CUDA device count: 1
+
+Device 0: NVIDIA GeForce RTX 3090
+  Compute capability: 8.6
+  Global memory: 23.9995 GiB
+  SM count: 82
+  Warp size: 32
+  Max threads per block: 1024
+  Shared memory per block: 48 KiB
+  Registers per block: 65536
+  Memory bus width: 384 bits
+  Memory clock rate: 9751 MHz
+

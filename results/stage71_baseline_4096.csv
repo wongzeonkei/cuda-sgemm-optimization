@@ -1,0 +1,3 @@
+implementation,M,N,K,warmup,iterations,mean_latency_ms,gflops,max_abs_error,mean_abs_error,mismatch_count,reference
+naive_cuda,4096,4096,4096,5,10,65.9824,2082.97,0,0,0,cublas
+cublas_pedantic_fp32,4096,4096,4096,5,10,6.30477,21799.2,0,0,0,none

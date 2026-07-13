@@ -1,0 +1,13 @@
+CUDA device count: 1
+
+Device 0: NVIDIA GeForce RTX 3090
+  Compute capability: 8.6
+  Global memory: 23.9995 GiB
+  SM count: 82
+  Warp size: 32
+  Max threads per block: 1024
+  Shared memory per block: 48 KiB
+  Registers per block: 65536
+  Memory bus width: 384 bits
+  Memory clock rate: 9751 MHz
+
