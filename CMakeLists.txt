@@ -71,3 +71,24 @@ target_compile_options(
     $<$<COMPILE_LANGUAGE:CUDA>:-lineinfo>
     $<$<COMPILE_LANGUAGE:CXX>:-O3>
 )
+
+add_executable(
+    sgemm_stage73_register1d
+    src/sgemm_stage73_register1d.cu
+)
+
+target_link_libraries(
+    sgemm_stage73_register1d
+    PRIVATE
+    CUDA::cudart
+    CUDA::cublas
+)
+
+target_compile_options(
+    sgemm_stage73_register1d
+    PRIVATE
+    $<$<COMPILE_LANGUAGE:CUDA>:-O3>
+    $<$<COMPILE_LANGUAGE:CUDA>:-lineinfo>
+    $<$<COMPILE_LANGUAGE:CUDA>:-Xptxas=-v>
+    $<$<COMPILE_LANGUAGE:CXX>:-O3>
+)

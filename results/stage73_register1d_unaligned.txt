@@ -1,0 +1,30 @@
+========================================
+Stage 7.3 1D Register Tiling
+========================================
+M = 1000
+N = 1030
+K = 777
+Block tile = 128 x 32
+K tile = 16
+Thread tile = 8 x 1
+Threads per block = 512
+Warmup = 10
+Iterations = 30
+
+Register-tiled CUDA
+  Mean latency: 0.289519 ms
+  Performance:  5528.550555 GFLOPS
+
+cuBLAS Pedantic FP32
+  Mean latency: 0.101274 ms
+  Performance:  15804.908100 GFLOPS
+
+Register/cuBLAS ratio: 34.979960%
+
+Correctness vs cuBLAS
+  Max abs error:  0.0000000000e+00
+  Mean abs error: 0.0000000000e+00
+  Max rel error:  0.0000000000e+00
+  Mismatches:     0
+
+Saved CSV: results/stage73_register1d_unaligned.csv
