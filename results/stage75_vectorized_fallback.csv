@@ -1,0 +1,4 @@
+implementation,M,N,K,BM,BN,BK,TM,TN,vector_width,float4_enabled,registers_per_thread,shared_bytes,local_memory_bytes,warmup,iterations,mean_latency_ms,gflops,max_abs_error,mean_abs_error,mismatch_count,reference
+register2d_scalar_load,1000,1030,777,128,128,8,8,8,1,false,122,8320,0,10,30,0.181009,8842.76,0,0,0,cublas
+register2d_scalar_fallback,1000,1030,777,128,128,8,8,8,4,false,122,8320,0,10,30,0.181658,8811.19,0,0,0,cublas
+cublas_pedantic_fp32,1000,1030,777,0,0,0,0,0,0,false,0,0,0,10,30,0.120422,13291.7,0,0,0,none

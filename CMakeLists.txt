@@ -113,3 +113,24 @@ target_compile_options(
     $<$<COMPILE_LANGUAGE:CUDA>:-Xptxas=-v>
     $<$<COMPILE_LANGUAGE:CXX>:-O3>
 )
+
+add_executable(
+    sgemm_stage75_vectorized
+    src/sgemm_stage75_vectorized.cu
+)
+
+target_link_libraries(
+    sgemm_stage75_vectorized
+    PRIVATE
+    CUDA::cudart
+    CUDA::cublas
+)
+
+target_compile_options(
+    sgemm_stage75_vectorized
+    PRIVATE
+    $<$<COMPILE_LANGUAGE:CUDA>:-O3>
+    $<$<COMPILE_LANGUAGE:CUDA>:-lineinfo>
+    $<$<COMPILE_LANGUAGE:CUDA>:-Xptxas=-v>
+    $<$<COMPILE_LANGUAGE:CXX>:-O3>
+)

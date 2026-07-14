@@ -1,0 +1,49 @@
+========================================
+Stage 7.5 float4 Vectorized Loading
+========================================
+M = 1024
+N = 1024
+K = 1024
+Block tile = 128 x 128
+K tile = 8
+Thread tile = 8 x 8
+Threads per block = 256
+Vector width = 4 floats / 16 bytes
+float4 path enabled = yes
+Scalar kernel registers = 122
+Vector kernel registers = 110
+Vector kernel shared memory = 8320 bytes
+Vector kernel local memory = 0 bytes
+Warmup = 10
+Iterations = 50
+
+CUDA pointer alignment = 16-byte aligned
+Selected path = float4
+
+Scalar-load Register2D
+  Mean latency: 0.303291 ms
+  Performance:  7080.592930 GFLOPS
+
+float4-load Register2D
+  Mean latency: 0.346685 ms
+  Performance:  6194.328934 GFLOPS
+
+cuBLAS Pedantic FP32
+  Mean latency: 0.143544 ms
+  Performance:  14960.422701 GFLOPS
+
+Selected/scalar speedup: 0.874832x
+Selected/cuBLAS ratio:   41.404772%
+
+Selected path vs cuBLAS
+  Max abs error:  7.2479248047e-05
+  Mean abs error: 4.5373902573e-06
+  Max rel error:  1.2474442470e+00
+  Mismatches:     0
+
+Selected path vs scalar kernel
+  Max abs error:  0.0000000000e+00
+  Mean abs error: 0.0000000000e+00
+  Mismatches:     0
+
+Saved CSV: results/stage75_vectorized_1024.csv
