@@ -134,3 +134,24 @@ target_compile_options(
     $<$<COMPILE_LANGUAGE:CUDA>:-Xptxas=-v>
     $<$<COMPILE_LANGUAGE:CXX>:-O3>
 )
+
+add_executable(
+    sgemm_stage76_double_buffer
+    src/sgemm_stage76_double_buffer.cu
+)
+
+target_link_libraries(
+    sgemm_stage76_double_buffer
+    PRIVATE
+    CUDA::cudart
+    CUDA::cublas
+)
+
+target_compile_options(
+    sgemm_stage76_double_buffer
+    PRIVATE
+    $<$<COMPILE_LANGUAGE:CUDA>:-O3>
+    $<$<COMPILE_LANGUAGE:CUDA>:-lineinfo>
+    $<$<COMPILE_LANGUAGE:CUDA>:-Xptxas=-v>
+    $<$<COMPILE_LANGUAGE:CXX>:-O3>
+)

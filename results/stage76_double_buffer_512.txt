@@ -1,0 +1,47 @@
+========================================
+Stage 7.6 Software Double Buffering
+========================================
+M = 512
+N = 512
+K = 512
+Block tile = 128 x 128
+K tile = 8
+Thread tile = 8 x 8
+Threads per block = 256
+Vector width = 4 floats / 16 bytes
+Selected load path = float4
+Single-buffer registers = 110
+Double-buffer registers = 128
+Single-buffer shared memory = 8320 bytes
+Double-buffer shared memory = 16640 bytes
+Double-buffer local memory = 0 bytes
+Warmup = 10
+Iterations = 50
+
+Single-buffer Register2D
+  Mean latency: 0.107501 ms
+  Performance:  2497.040566 GFLOPS
+
+Double-buffer Register2D
+  Mean latency: 0.095089 ms
+  Performance:  2823.002196 GFLOPS
+
+cuBLAS Pedantic FP32
+  Mean latency: 0.026911 ms
+  Performance:  9975.037906 GFLOPS
+
+Double/single speedup: 1.130539x
+Double/cuBLAS ratio:   28.300666%
+
+Double buffer vs cuBLAS
+  Max abs error:  3.2424926758e-05
+  Mean abs error: 2.4118309174e-06
+  Max rel error:  1.7342032967e-02
+  Mismatches:     0
+
+Double buffer vs single buffer
+  Max abs error:  0.0000000000e+00
+  Mean abs error: 0.0000000000e+00
+  Mismatches:     0
+
+Saved CSV: results/stage76_double_buffer_512.csv
