@@ -133,3 +133,45 @@ cmake \
 
 The imported target automatically propagates the installed header path
 and the `CUDA::cudart` dependency. The package is relocatable.
+
+## Automated Testing
+
+Configure compile-only tests:
+
+```bash
+cmake \
+  -S . \
+  -B build-ci \
+  -G Ninja \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DBUILD_TESTING=ON \
+  -DSGEMM_ENABLE_GPU_TESTS=OFF
+
+cmake --build build-ci --parallel 2
+
+ctest \
+  --test-dir build-ci \
+  --label-regex ci \
+  --output-on-failure
+```
+
+Enable local GPU runtime tests with:
+
+```bash
+cmake \
+  -S . \
+  -B build-gpu-tests \
+  -DBUILD_TESTING=ON \
+  -DSGEMM_ENABLE_GPU_TESTS=ON
+
+cmake --build build-gpu-tests
+
+ctest \
+  --test-dir build-gpu-tests \
+  --label-regex gpu \
+  --output-on-failure
+```
+
+The compile-only test installs the CMake package, builds an external
+Consumer, relocates the installation tree, and builds the Consumer again.
+GPU tests validate the float4 kernel and scalar fallback paths.

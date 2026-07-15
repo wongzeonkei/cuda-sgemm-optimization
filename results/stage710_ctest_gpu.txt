@@ -1,0 +1,16 @@
+Internal ctest changing into directory: /root/cuda-sgemm-optimization/build-stage710
+Test project /root/cuda-sgemm-optimization/build-stage710
+    Start 2: stage710_gpu_float4
+1/3 Test #2: stage710_gpu_float4 ...............   Passed    0.58 sec
+    Start 3: stage710_gpu_dimension_fallback
+2/3 Test #3: stage710_gpu_dimension_fallback ...   Passed    0.58 sec
+    Start 4: stage710_gpu_pointer_fallback
+3/3 Test #4: stage710_gpu_pointer_fallback .....   Passed    0.61 sec
+
+100% tests passed, 0 tests failed out of 3
+
+Label Time Summary:
+gpu        =   1.77 sec*proc (3 tests)
+runtime    =   1.77 sec*proc (3 tests)
+
+Total Test time (real) =   1.78 sec

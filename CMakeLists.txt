@@ -296,3 +296,131 @@ install(
     DESTINATION
     "${SGEMM_DISPATCH_CMAKE_INSTALL_DIR}"
 )
+
+
+# ============================================================
+# Stage 7.10: CTest integration
+# ============================================================
+
+include(CTest)
+
+option(
+    SGEMM_ENABLE_GPU_TESTS
+    "Enable CTest cases that require an NVIDIA GPU"
+    OFF
+)
+
+if(BUILD_TESTING)
+    if(CMAKE_CONFIGURATION_TYPES)
+        set(
+            STAGE710_TEST_CONFIG
+            "$<CONFIG>"
+        )
+    elseif(CMAKE_BUILD_TYPE)
+        set(
+            STAGE710_TEST_CONFIG
+            "${CMAKE_BUILD_TYPE}"
+        )
+    else()
+        set(
+            STAGE710_TEST_CONFIG
+            "Release"
+        )
+    endif()
+
+    set(
+        STAGE710_CUDA_HOST_COMPILER
+        "${CMAKE_CUDA_HOST_COMPILER}"
+    )
+
+    if(NOT STAGE710_CUDA_HOST_COMPILER)
+        set(
+            STAGE710_CUDA_HOST_COMPILER
+            "${CMAKE_CXX_COMPILER}"
+        )
+    endif()
+
+    add_test(
+        NAME
+        stage710_package_consumer_build
+
+        COMMAND
+        "${CMAKE_COMMAND}"
+        "-DSTAGE710_SOURCE_DIR=${CMAKE_SOURCE_DIR}"
+        "-DSTAGE710_BINARY_DIR=${CMAKE_BINARY_DIR}"
+        "-DSTAGE710_CXX_COMPILER=${CMAKE_CXX_COMPILER}"
+        "-DSTAGE710_CUDA_HOST_COMPILER=${STAGE710_CUDA_HOST_COMPILER}"
+        "-DSTAGE710_CUDA_ARCHITECTURES=${CMAKE_CUDA_ARCHITECTURES}"
+        "-DSTAGE710_CONFIG=${STAGE710_TEST_CONFIG}"
+        "-DSTAGE710_GENERATOR=${CMAKE_GENERATOR}"
+        -P
+        "${CMAKE_SOURCE_DIR}/cmake/stage710_package_ci_test.cmake"
+    )
+
+    set_tests_properties(
+        stage710_package_consumer_build
+        PROPERTIES
+        LABELS
+        "ci;package;compile-only"
+        TIMEOUT
+        600
+        PASS_REGULAR_EXPRESSION
+        "CI_PACKAGE_TEST_PASS = true"
+    )
+
+    if(SGEMM_ENABLE_GPU_TESTS)
+        add_test(
+            NAME
+            stage710_gpu_float4
+
+            COMMAND
+            $<TARGET_FILE:sgemm_stage78_library_smoke>
+            127
+            132
+            116
+            1
+            aligned
+        )
+
+        add_test(
+            NAME
+            stage710_gpu_dimension_fallback
+
+            COMMAND
+            $<TARGET_FILE:sgemm_stage78_library_smoke>
+            127
+            131
+            113
+            1
+            aligned
+        )
+
+        add_test(
+            NAME
+            stage710_gpu_pointer_fallback
+
+            COMMAND
+            $<TARGET_FILE:sgemm_stage78_library_smoke>
+            127
+            132
+            116
+            1
+            misalign-a
+        )
+
+        set_tests_properties(
+            stage710_gpu_float4
+            stage710_gpu_dimension_fallback
+            stage710_gpu_pointer_fallback
+            PROPERTIES
+            LABELS
+            "gpu;runtime"
+            RESOURCE_LOCK
+            "nvidia_gpu"
+            TIMEOUT
+            120
+            PASS_REGULAR_EXPRESSION
+            "Mismatches = 0"
+        )
+    endif()
+endif()

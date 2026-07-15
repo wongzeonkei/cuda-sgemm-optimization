@@ -1,0 +1,13 @@
+Internal ctest changing into directory: /root/cuda-sgemm-optimization/build-stage710
+Test project /root/cuda-sgemm-optimization/build-stage710
+    Start 1: stage710_package_consumer_build
+1/1 Test #1: stage710_package_consumer_build ...   Passed   54.17 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Label Time Summary:
+ci              =  54.17 sec*proc (1 test)
+compile-only    =  54.17 sec*proc (1 test)
+package         =  54.17 sec*proc (1 test)
+
+Total Test time (real) =  54.18 sec

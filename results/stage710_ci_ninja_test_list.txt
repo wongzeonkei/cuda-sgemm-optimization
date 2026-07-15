@@ -1,0 +1,5 @@
+Internal ctest changing into directory: /root/cuda-sgemm-optimization/build-stage710-ci
+Test project /root/cuda-sgemm-optimization/build-stage710-ci
+  Test #1: stage710_package_consumer_build
+
+Total Tests: 1

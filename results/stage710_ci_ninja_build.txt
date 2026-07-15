@@ -1,0 +1,74 @@
+[1/20] Building CUDA object CMakeFiles/device_info.dir/src/device_info.cu.o
+[2/20] Linking CUDA executable /root/cuda-sgemm-optimization/bin/device_info
+[3/20] Building CUDA object CMakeFiles/sgemm_stage71.dir/src/sgemm_stage71.cu.o
+[4/20] Linking CUDA executable /root/cuda-sgemm-optimization/bin/sgemm_stage71
+[5/20] Building CUDA object CMakeFiles/sgemm_stage72_tiled.dir/src/sgemm_stage72_tiled.cu.o
+[6/20] Linking CUDA executable /root/cuda-sgemm-optimization/bin/sgemm_stage72_tiled
+[7/20] Building CUDA object CMakeFiles/sgemm_stage73_register1d.dir/src/sgemm_stage73_register1d.cu.o
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_Z24sgemm_register_1d_kernelPKfS0_Pfiii' for 'sm_86'
+ptxas info    : Function properties for _Z24sgemm_register_1d_kernelPKfS0_Pfiii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, 10240 bytes smem, 388 bytes cmem[0]
+[8/20] Linking CUDA executable /root/cuda-sgemm-optimization/bin/sgemm_stage73_register1d
+[9/20] Building CUDA object CMakeFiles/sgemm_stage74_register2d.dir/src/sgemm_stage74_register2d.cu.o
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_Z24sgemm_register_2d_kernelPKfS0_Pfiii' for 'sm_86'
+ptxas info    : Function properties for _Z24sgemm_register_2d_kernelPKfS0_Pfiii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 124 registers, 8320 bytes smem, 388 bytes cmem[0]
+[10/20] Linking CUDA executable /root/cuda-sgemm-optimization/bin/sgemm_stage74_register2d
+[11/20] Building CUDA object CMakeFiles/sgemm_stage75_vectorized.dir/src/sgemm_stage75_vectorized.cu.o
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_Z24sgemm_register_2d_kernelILb1EEvPKfS1_Pfiii' for 'sm_86'
+ptxas info    : Function properties for _Z24sgemm_register_2d_kernelILb1EEvPKfS1_Pfiii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 110 registers, 8320 bytes smem, 388 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z24sgemm_register_2d_kernelILb0EEvPKfS1_Pfiii' for 'sm_86'
+ptxas info    : Function properties for _Z24sgemm_register_2d_kernelILb0EEvPKfS1_Pfiii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 122 registers, 8320 bytes smem, 388 bytes cmem[0]
+[12/20] Linking CUDA executable /root/cuda-sgemm-optimization/bin/sgemm_stage75_vectorized
+[13/20] Building CUDA object CMakeFiles/sgemm_stage76_double_buffer.dir/src/sgemm_stage76_double_buffer.cu.o
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_Z26sgemm_double_buffer_kernelILb0EEvPKfS1_Pfiii' for 'sm_86'
+ptxas info    : Function properties for _Z26sgemm_double_buffer_kernelILb0EEvPKfS1_Pfiii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 116 registers, 16640 bytes smem, 388 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z26sgemm_single_buffer_kernelILb0EEvPKfS1_Pfiii' for 'sm_86'
+ptxas info    : Function properties for _Z26sgemm_single_buffer_kernelILb0EEvPKfS1_Pfiii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 116 registers, 8320 bytes smem, 388 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z26sgemm_double_buffer_kernelILb1EEvPKfS1_Pfiii' for 'sm_86'
+ptxas info    : Function properties for _Z26sgemm_double_buffer_kernelILb1EEvPKfS1_Pfiii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 128 registers, 16640 bytes smem, 388 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z26sgemm_single_buffer_kernelILb1EEvPKfS1_Pfiii' for 'sm_86'
+ptxas info    : Function properties for _Z26sgemm_single_buffer_kernelILb1EEvPKfS1_Pfiii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 110 registers, 8320 bytes smem, 388 bytes cmem[0]
+[14/20] Linking CUDA executable /root/cuda-sgemm-optimization/bin/sgemm_stage76_double_buffer
+[15/20] Building CUDA object CMakeFiles/sgemm_stage77_dispatch.dir/src/sgemm_stage77_dispatch.cu.o
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_Z26sgemm_single_buffer_kernelILb0EEvPKfS1_Pfiii' for 'sm_86'
+ptxas info    : Function properties for _Z26sgemm_single_buffer_kernelILb0EEvPKfS1_Pfiii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 116 registers, 8320 bytes smem, 388 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z26sgemm_double_buffer_kernelILb1EEvPKfS1_Pfiii' for 'sm_86'
+ptxas info    : Function properties for _Z26sgemm_double_buffer_kernelILb1EEvPKfS1_Pfiii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 128 registers, 16640 bytes smem, 388 bytes cmem[0]
+[16/20] Linking CUDA executable /root/cuda-sgemm-optimization/bin/sgemm_stage77_dispatch
+[17/20] Building CUDA object CMakeFiles/sgemm_dispatch.dir/src/sgemm_dispatch.cu.o
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_Z26sgemm_single_buffer_kernelILb0EEvPKfS1_Pfiii' for 'sm_86'
+ptxas info    : Function properties for _Z26sgemm_single_buffer_kernelILb0EEvPKfS1_Pfiii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 116 registers, 8320 bytes smem, 388 bytes cmem[0]
+ptxas info    : Compiling entry function '_Z26sgemm_double_buffer_kernelILb1EEvPKfS1_Pfiii' for 'sm_86'
+ptxas info    : Function properties for _Z26sgemm_double_buffer_kernelILb1EEvPKfS1_Pfiii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 128 registers, 16640 bytes smem, 388 bytes cmem[0]
+[18/20] Linking CUDA static library lib/libsgemm_dispatch.a
+[19/20] Building CUDA object CMakeFiles/sgemm_stage78_library_smoke.dir/tests/sgemm_stage78_library_smoke.cu.o
+[20/20] Linking CUDA executable /root/cuda-sgemm-optimization/bin/sgemm_stage78_library_smoke

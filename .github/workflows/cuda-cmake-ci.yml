@@ -1,0 +1,132 @@
+name: CUDA CMake CI
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/cuda-cmake-ci.yml"
+      - "CMakeLists.txt"
+      - "cmake/**"
+      - "include/**"
+      - "src/**"
+      - "tests/**"
+      - "scripts/**"
+
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/cuda-cmake-ci.yml"
+      - "CMakeLists.txt"
+      - "cmake/**"
+      - "include/**"
+      - "src/**"
+      - "tests/**"
+      - "scripts/**"
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cuda-cmake-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  cuda-build-package:
+    name: CUDA 11.8 Build and Package Test
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    container:
+      image: nvidia/cuda:11.8.0-devel-ubuntu22.04
+
+    defaults:
+      run:
+        shell: bash
+
+    env:
+      DEBIAN_FRONTEND: noninteractive
+
+    steps:
+      - name: Install build tools
+        run: |
+          apt-get update
+          apt-get install \
+            --yes \
+            --no-install-recommends \
+            ca-certificates \
+            cmake \
+            g++ \
+            git \
+            ninja-build
+          rm -rf /var/lib/apt/lists/*
+
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+
+      - name: Display toolchain
+        run: |
+          nvcc --version
+          cmake --version
+          g++ --version
+          ninja --version
+
+      - name: Configure
+        run: |
+          cmake \
+            -S . \
+            -B build-ci \
+            -G Ninja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_CXX_COMPILER=/usr/bin/g++ \
+            -DCMAKE_CUDA_HOST_COMPILER=/usr/bin/g++ \
+            -DCMAKE_CUDA_ARCHITECTURES=86 \
+            -DBUILD_TESTING=ON \
+            -DSGEMM_ENABLE_GPU_TESTS=OFF
+
+      - name: Build
+        run: |
+          cmake \
+            --build build-ci \
+            --parallel 2
+
+      - name: List CTest cases
+        run: |
+          ctest \
+            --test-dir build-ci \
+            --show-only=human
+
+      - name: Run compile-only CI tests
+        run: |
+          ctest \
+            --test-dir build-ci \
+            --label-regex ci \
+            --output-on-failure \
+            --no-tests=error
+
+      - name: Validate installation
+        run: |
+          rm -rf install-ci
+
+          cmake \
+            --install build-ci \
+            --prefix "$GITHUB_WORKSPACE/install-ci"
+
+          find install-ci \
+            -maxdepth 5 \
+            -type f \
+            -print \
+            | sort
+
+          test -f install-ci/lib/libsgemm_dispatch.a
+          test -f install-ci/include/sgemm_dispatch.h
+          test -f install-ci/include/cuda_check.h
+          test -f install-ci/lib/cmake/sgemm_dispatch/sgemm_dispatchConfig.cmake
+          test -f install-ci/lib/cmake/sgemm_dispatch/sgemm_dispatchConfigVersion.cmake
+          test -f install-ci/lib/cmake/sgemm_dispatch/sgemm_dispatchTargets.cmake

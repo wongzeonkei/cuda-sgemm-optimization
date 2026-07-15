@@ -1,0 +1,99 @@
+Internal ctest changing into directory: /root/cuda-sgemm-optimization/build-stage710-ci
+UpdateCTestConfiguration  from :/root/cuda-sgemm-optimization/build-stage710-ci/DartConfiguration.tcl
+Parse Config file:/root/cuda-sgemm-optimization/build-stage710-ci/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/root/cuda-sgemm-optimization/build-stage710-ci/DartConfiguration.tcl
+Parse Config file:/root/cuda-sgemm-optimization/build-stage710-ci/DartConfiguration.tcl
+Test project /root/cuda-sgemm-optimization/build-stage710-ci
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: stage710_package_consumer_build
+
+1: Test command: /usr/bin/cmake "-DSTAGE710_SOURCE_DIR=/root/cuda-sgemm-optimization" "-DSTAGE710_BINARY_DIR=/root/cuda-sgemm-optimization/build-stage710-ci" "-DSTAGE710_CXX_COMPILER=/usr/bin/g++-11" "-DSTAGE710_CUDA_HOST_COMPILER=/usr/bin/g++-11" "-DSTAGE710_CUDA_ARCHITECTURES=86" "-DSTAGE710_CONFIG=Release" "-DSTAGE710_GENERATOR=Ninja" "-P" "/root/cuda-sgemm-optimization/cmake/stage710_package_ci_test.cmake"
+1: Working Directory: /root/cuda-sgemm-optimization/build-stage710-ci
+1: Test timeout computed to be: 600
+1: -- ===== Install SGEMM package: stdout =====
+1: -- Installing: /root/cuda-sgemm-optimization/build-stage710-ci/stage710_ctest_package/install/lib/libsgemm_dispatch.a
+1: -- Installing: /root/cuda-sgemm-optimization/build-stage710-ci/stage710_ctest_package/install/include/sgemm_dispatch.h
+1: -- Installing: /root/cuda-sgemm-optimization/build-stage710-ci/stage710_ctest_package/install/include/cuda_check.h
+1: -- Installing: /root/cuda-sgemm-optimization/build-stage710-ci/stage710_ctest_package/install/lib/cmake/sgemm_dispatch/sgemm_dispatchTargets.cmake
+1: -- Installing: /root/cuda-sgemm-optimization/build-stage710-ci/stage710_ctest_package/install/lib/cmake/sgemm_dispatch/sgemm_dispatchTargets-release.cmake
+1: -- Installing: /root/cuda-sgemm-optimization/build-stage710-ci/stage710_ctest_package/install/lib/cmake/sgemm_dispatch/sgemm_dispatchConfig.cmake
+1: -- Installing: /root/cuda-sgemm-optimization/build-stage710-ci/stage710_ctest_package/install/lib/cmake/sgemm_dispatch/sgemm_dispatchConfigVersion.cmake
+1: 
+1: -- ===== Configure original package Consumer: stdout =====
+1: -- The CXX compiler identification is GNU 11.5.0
+1: -- The CUDA compiler identification is NVIDIA 11.8.89
+1: -- Detecting CXX compiler ABI info
+1: -- Detecting CXX compiler ABI info - done
+1: -- Check for working CXX compiler: /usr/bin/g++-11 - skipped
+1: -- Detecting CXX compile features
+1: -- Detecting CXX compile features - done
+1: -- Detecting CUDA compiler ABI info
+1: -- Detecting CUDA compiler ABI info - done
+1: -- Check for working CUDA compiler: /usr/local/cuda-11.8/bin/nvcc - skipped
+1: -- Detecting CUDA compile features
+1: -- Detecting CUDA compile features - done
+1: -- Found CUDAToolkit: /usr/local/cuda-11.8/targets/x86_64-linux/include (found version "11.8.89") 
+1: -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+1: -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+1: -- Found Threads: TRUE  
+1: -- sgemm_dispatch version: 0.1.0
+1: -- sgemm_dispatch target type: STATIC_LIBRARY
+1: -- sgemm_dispatch include directories: /root/cuda-sgemm-optimization/build-stage710-ci/stage710_ctest_package/install/include
+1: -- sgemm_dispatch link libraries: CUDA::cudart
+1: -- Configuring done (25.8s)
+1: -- Generating done (0.0s)
+1: -- Build files have been written to: /root/cuda-sgemm-optimization/build-stage710-ci/stage710_ctest_package/consumer_original
+1: 
+1: -- ===== Build original package Consumer: stdout =====
+1: [1/2] Building CUDA object CMakeFiles/sgemm_dispatch_consumer.dir/main.cu.o
+1: [2/2] Linking CUDA executable sgemm_dispatch_consumer
+1: 
+1: -- ===== Configure relocated package Consumer: stdout =====
+1: -- The CXX compiler identification is GNU 11.5.0
+1: -- The CUDA compiler identification is NVIDIA 11.8.89
+1: -- Detecting CXX compiler ABI info
+1: -- Detecting CXX compiler ABI info - done
+1: -- Check for working CXX compiler: /usr/bin/g++-11 - skipped
+1: -- Detecting CXX compile features
+1: -- Detecting CXX compile features - done
+1: -- Detecting CUDA compiler ABI info
+1: -- Detecting CUDA compiler ABI info - done
+1: -- Check for working CUDA compiler: /usr/local/cuda-11.8/bin/nvcc - skipped
+1: -- Detecting CUDA compile features
+1: -- Detecting CUDA compile features - done
+1: -- Found CUDAToolkit: /usr/local/cuda-11.8/targets/x86_64-linux/include (found version "11.8.89") 
+1: -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+1: -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+1: -- Found Threads: TRUE  
+1: -- sgemm_dispatch version: 0.1.0
+1: -- sgemm_dispatch target type: STATIC_LIBRARY
+1: -- sgemm_dispatch include directories: /root/cuda-sgemm-optimization/build-stage710-ci/stage710_ctest_package/relocated/include
+1: -- sgemm_dispatch link libraries: CUDA::cudart
+1: -- Configuring done (26.6s)
+1: -- Generating done (0.0s)
+1: -- Build files have been written to: /root/cuda-sgemm-optimization/build-stage710-ci/stage710_ctest_package/consumer_relocated
+1: 
+1: -- ===== Build relocated package Consumer: stdout =====
+1: [1/2] Building CUDA object CMakeFiles/sgemm_dispatch_consumer.dir/main.cu.o
+1: [2/2] Linking CUDA executable sgemm_dispatch_consumer
+1: 
+1: -- Original package Consumer build passed.
+1: -- Relocated package Consumer build passed.
+1: -- Relocated library: /root/cuda-sgemm-optimization/build-stage710-ci/stage710_ctest_package/relocated/lib/libsgemm_dispatch.a
+1: -- CI_PACKAGE_TEST_PASS = true
+1/1 Test #1: stage710_package_consumer_build ...   Passed   56.22 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Label Time Summary:
+ci              =  56.22 sec*proc (1 test)
+compile-only    =  56.22 sec*proc (1 test)
+package         =  56.22 sec*proc (1 test)
+
+Total Test time (real) =  56.22 sec

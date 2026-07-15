@@ -1,0 +1,8 @@
+Internal ctest changing into directory: /root/cuda-sgemm-optimization/build-stage710
+Test project /root/cuda-sgemm-optimization/build-stage710
+  Test #1: stage710_package_consumer_build
+  Test #2: stage710_gpu_float4
+  Test #3: stage710_gpu_dimension_fallback
+  Test #4: stage710_gpu_pointer_fallback
+
+Total Tests: 4

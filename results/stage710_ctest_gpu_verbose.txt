@@ -1,0 +1,95 @@
+Internal ctest changing into directory: /root/cuda-sgemm-optimization/build-stage710
+UpdateCTestConfiguration  from :/root/cuda-sgemm-optimization/build-stage710/DartConfiguration.tcl
+Parse Config file:/root/cuda-sgemm-optimization/build-stage710/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/root/cuda-sgemm-optimization/build-stage710/DartConfiguration.tcl
+Parse Config file:/root/cuda-sgemm-optimization/build-stage710/DartConfiguration.tcl
+Test project /root/cuda-sgemm-optimization/build-stage710
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 2
+    Start 2: stage710_gpu_float4
+
+2: Test command: /root/cuda-sgemm-optimization/bin/sgemm_stage78_library_smoke "127" "132" "116" "1" "aligned"
+2: Working Directory: /root/cuda-sgemm-optimization/build-stage710
+2: Test timeout computed to be: 120
+2: ========================================
+2: Stage 7.8 Static Library Smoke Test
+2: ========================================
+2: M = 127
+2: N = 132
+2: K = 116
+2: Alignment mode = aligned
+2: A address = 0x130f800000
+2: B address = 0x130f80e800
+2: Dimensions float4 compatible = true
+2: Pointers 16-byte aligned = true
+2: Float4 safe = true
+2: Selected kernel = float4_double_buffer
+2: Mean latency = 0.033792 ms
+2: Performance = 115.093749 GFLOPS
+2: Expected value = 116.000000
+2: Max abs error = 0.000000
+2: Mismatches = 0
+1/3 Test #2: stage710_gpu_float4 ...............   Passed    0.58 sec
+test 3
+    Start 3: stage710_gpu_dimension_fallback
+
+3: Test command: /root/cuda-sgemm-optimization/bin/sgemm_stage78_library_smoke "127" "131" "113" "1" "aligned"
+3: Working Directory: /root/cuda-sgemm-optimization/build-stage710
+3: Test timeout computed to be: 120
+3: ========================================
+3: Stage 7.8 Static Library Smoke Test
+3: ========================================
+3: M = 127
+3: N = 131
+3: K = 113
+3: Alignment mode = aligned
+3: A address = 0x130f800000
+3: B address = 0x130f80e200
+3: Dimensions float4 compatible = false
+3: Pointers 16-byte aligned = true
+3: Float4 safe = false
+3: Selected kernel = scalar_single_buffer
+3: Mean latency = 0.037888 ms
+3: Performance = 99.238858 GFLOPS
+3: Expected value = 113.000000
+3: Max abs error = 0.000000
+3: Mismatches = 0
+2/3 Test #3: stage710_gpu_dimension_fallback ...   Passed    0.57 sec
+test 4
+    Start 4: stage710_gpu_pointer_fallback
+
+4: Test command: /root/cuda-sgemm-optimization/bin/sgemm_stage78_library_smoke "127" "132" "116" "1" "misalign-a"
+4: Working Directory: /root/cuda-sgemm-optimization/build-stage710
+4: Test timeout computed to be: 120
+4: ========================================
+4: Stage 7.8 Static Library Smoke Test
+4: ========================================
+4: M = 127
+4: N = 132
+4: K = 116
+4: Alignment mode = misalign-a
+4: A address = 0x130f800004
+4: B address = 0x130f80e800
+4: Dimensions float4 compatible = true
+4: Pointers 16-byte aligned = false
+4: Float4 safe = false
+4: Selected kernel = scalar_single_buffer
+4: Mean latency = 0.036864 ms
+4: Performance = 105.502600 GFLOPS
+4: Expected value = 116.000000
+4: Max abs error = 0.000000
+4: Mismatches = 0
+3/3 Test #4: stage710_gpu_pointer_fallback .....   Passed    0.52 sec
+
+100% tests passed, 0 tests failed out of 3
+
+Label Time Summary:
+gpu        =   1.67 sec*proc (3 tests)
+runtime    =   1.67 sec*proc (3 tests)
+
+Total Test time (real) =   1.67 sec

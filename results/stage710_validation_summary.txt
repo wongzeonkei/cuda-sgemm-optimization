@@ -1,0 +1,17 @@
+Stage 7.10 CTest and CI Validation
+===================================
+[OK] results/stage710_test_list.txt
+[OK] results/stage710_ctest_ci_verbose.txt
+[OK] results/stage710_ctest_gpu_verbose.txt
+[OK] results/stage710_ci_ninja_configure.txt
+[OK] results/stage710_ci_ninja_build.txt
+[OK] results/stage710_ci_ninja_test_list.txt
+[OK] results/stage710_ci_ninja_ctest.txt
+[OK] Makefiles Package test passed
+[OK] Original Consumer build passed
+[OK] Relocated Consumer build passed
+[OK] Three local GPU tests passed
+[OK] Ninja compile-only CI test passed
+[OK] GPU tests are disabled in CI mode
+[OK] All runtime mismatches are zero
+[OK] CI_PACKAGE_TEST_PASS=true
