@@ -1,0 +1,12 @@
+===== Exact Version Test =====
+-- EXACT_VERSION_PASS=0.1.0
+-- Configuring done (30.4s)
+-- Generating done (0.0s)
+
+===== Incompatible Version Test =====
+  compatible with requested version "1.0.0".
+    /root/cuda-sgemm-optimization/install/lib/cmake/sgemm_dispatch/sgemm_dispatchConfig.cmake, version: 0.1.0
+-- Configuring incomplete, errors occurred!
+
+[OK] Exact version 0.1.0 accepted.
+[OK] Incompatible version 1.0.0 rejected.

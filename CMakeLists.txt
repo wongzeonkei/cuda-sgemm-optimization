@@ -256,3 +256,43 @@ install(
     DESTINATION
     ${CMAKE_INSTALL_LIBDIR}/cmake/sgemm_dispatch
 )
+
+
+# ============================================================
+# Stage 7.9: CMake package configuration
+# ============================================================
+
+include(CMakePackageConfigHelpers)
+
+set(
+    SGEMM_DISPATCH_PACKAGE_VERSION
+    "0.1.0"
+)
+
+set(
+    SGEMM_DISPATCH_CMAKE_INSTALL_DIR
+    "${CMAKE_INSTALL_LIBDIR}/cmake/sgemm_dispatch"
+)
+
+configure_package_config_file(
+    "${CMAKE_CURRENT_SOURCE_DIR}/cmake/sgemm_dispatchConfig.cmake.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/sgemm_dispatchConfig.cmake"
+    INSTALL_DESTINATION
+    "${SGEMM_DISPATCH_CMAKE_INSTALL_DIR}"
+)
+
+write_basic_package_version_file(
+    "${CMAKE_CURRENT_BINARY_DIR}/sgemm_dispatchConfigVersion.cmake"
+    VERSION
+    "${SGEMM_DISPATCH_PACKAGE_VERSION}"
+    COMPATIBILITY
+    SameMajorVersion
+)
+
+install(
+    FILES
+    "${CMAKE_CURRENT_BINARY_DIR}/sgemm_dispatchConfig.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/sgemm_dispatchConfigVersion.cmake"
+    DESTINATION
+    "${SGEMM_DISPATCH_CMAKE_INSTALL_DIR}"
+)

@@ -1,0 +1,7 @@
+install/include/cuda_check.h
+install/include/sgemm_dispatch.h
+install/lib/cmake/sgemm_dispatch/sgemm_dispatchConfig.cmake
+install/lib/cmake/sgemm_dispatch/sgemm_dispatchConfigVersion.cmake
+install/lib/cmake/sgemm_dispatch/sgemm_dispatchTargets-release.cmake
+install/lib/cmake/sgemm_dispatch/sgemm_dispatchTargets.cmake
+install/lib/libsgemm_dispatch.a

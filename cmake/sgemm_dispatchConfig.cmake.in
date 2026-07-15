@@ -1,0 +1,16 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+
+find_dependency(CUDAToolkit REQUIRED)
+
+set(
+    sgemm_dispatch_VERSION
+    "@SGEMM_DISPATCH_PACKAGE_VERSION@"
+)
+
+include(
+    "${CMAKE_CURRENT_LIST_DIR}/sgemm_dispatchTargets.cmake"
+)
+
+check_required_components(sgemm_dispatch)

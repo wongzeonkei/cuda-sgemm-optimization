@@ -95,3 +95,41 @@ nvcc \
 The public API supports row-major FP32 `C = A x B` and accepts an optional
 CUDA stream. Vector-compatible inputs use the float4 double-buffer kernel;
 all other inputs automatically use the scalar fallback.
+
+### CMake Package Usage
+
+Install the package:
+
+```bash
+./scripts/build.sh
+cmake --install build --prefix "$(pwd)/install"
+```
+
+Use it from an external CMake project:
+
+```cmake
+find_package(
+    sgemm_dispatch
+    0.1
+    CONFIG
+    REQUIRED
+)
+
+target_link_libraries(
+    external_application
+    PRIVATE
+    cuda_sgemm::sgemm_dispatch
+)
+```
+
+Configure the external project with:
+
+```bash
+cmake \
+  -S external_project \
+  -B external_build \
+  -DCMAKE_PREFIX_PATH=/path/to/sgemm/install
+```
+
+The imported target automatically propagates the installed header path
+and the `CUDA::cudart` dependency. The package is relocatable.

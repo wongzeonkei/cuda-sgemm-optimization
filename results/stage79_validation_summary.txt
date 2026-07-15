@@ -1,0 +1,17 @@
+Stage 7.9 CMake Package Validation
+==================================
+[OK] results/stage79_consumer_configure.log
+[OK] results/stage79_consumer_run.txt
+[OK] results/stage79_version_exact.log
+[OK] results/stage79_version_incompatible.log
+[OK] results/stage79_relocated_configure.log
+[OK] results/stage79_relocated_run.txt
+[OK] results/stage79_consumer_link_rsp.txt
+[OK] results/stage79_relocated_link_rsp.txt
+[OK] Original package links installed static library
+[OK] CUDA runtime dependency is propagated
+[OK] Exact version 0.1.0 is accepted
+[OK] Incompatible version 1.0.0 is rejected
+[OK] Relocated package does not reference original install path
+[OK] Both dispatcher paths produce zero mismatches
+[OK] PACKAGE_CONSUMER_PASS=true

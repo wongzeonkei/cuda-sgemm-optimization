@@ -1,0 +1,25 @@
+========================================
+Stage 7.9 CMake Package Consumer
+========================================
+----------------------------------------
+M = 128
+N = 132
+K = 116
+Float4 safe = true
+Selected kernel = float4_double_buffer
+Expected kernel = float4_double_buffer
+Kernel matches = true
+Max abs error = 0
+Mismatches = 0
+----------------------------------------
+M = 127
+N = 131
+K = 113
+Float4 safe = false
+Selected kernel = scalar_single_buffer
+Expected kernel = scalar_single_buffer
+Kernel matches = true
+Max abs error = 0
+Mismatches = 0
+========================================
+PACKAGE_CONSUMER_PASS = true
