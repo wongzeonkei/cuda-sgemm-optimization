@@ -23,3 +23,5 @@
 __pycache__/
 *.pyc
 results/stage77_runs/
+install/
+build/lib/

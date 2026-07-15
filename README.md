@@ -53,3 +53,45 @@ For a row-major `4096 x 4096 x 4096` SGEMM:
 The benchmark uses CUDA Events and excludes host-to-device and
 device-to-host transfers. The reference implementation is cuBLAS
 Pedantic FP32.
+
+## Reusable Static Library
+
+The final SGEMM dispatcher is also available as a reusable static library:
+
+```text
+build/lib/libsgemm_dispatch.a
+```
+
+Build and install it with:
+
+```bash
+./scripts/build.sh
+cmake --install build --prefix "$(pwd)/install"
+```
+
+The installed files include:
+
+```text
+install/include/sgemm_dispatch.h
+install/include/cuda_check.h
+install/lib/libsgemm_dispatch.a
+```
+
+Example external compilation for CUDA 11.8:
+
+```bash
+nvcc \
+  -std=c++17 \
+  -arch=sm_86 \
+  -O3 \
+  -ccbin /usr/bin/g++-11 \
+  -Iinstall/include \
+  tests/sgemm_stage78_library_smoke.cu \
+  install/lib/libsgemm_dispatch.a \
+  -lcudart \
+  -o /tmp/sgemm_library_smoke
+```
+
+The public API supports row-major FP32 `C = A x B` and accepts an optional
+CUDA stream. Vector-compatible inputs use the float4 double-buffer kernel;
+all other inputs automatically use the scalar fallback.

@@ -1,0 +1,18 @@
+========================================
+Stage 7.8 Static Library Smoke Test
+========================================
+M = 1024
+N = 1024
+K = 1024
+Alignment mode = aligned
+A address = 0x130f800000
+B address = 0x130fe00000
+Dimensions float4 compatible = true
+Pointers 16-byte aligned = true
+Float4 safe = true
+Selected kernel = float4_double_buffer
+Mean latency = 0.182456 ms
+Performance = 11769.851063 GFLOPS
+Expected value = 1024.000000
+Max abs error = 0.000000
+Mismatches = 0

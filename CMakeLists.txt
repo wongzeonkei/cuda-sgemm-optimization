@@ -176,3 +176,83 @@ target_compile_options(
     $<$<COMPILE_LANGUAGE:CUDA>:-Xptxas=-v>
     $<$<COMPILE_LANGUAGE:CXX>:-O3>
 )
+
+# ============================================================
+# Stage 7.8: Reusable SGEMM static library
+# ============================================================
+
+add_library(
+    sgemm_dispatch
+    STATIC
+    src/sgemm_dispatch.cu
+)
+
+target_include_directories(
+    sgemm_dispatch
+    PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+)
+
+target_link_libraries(
+    sgemm_dispatch
+    PUBLIC
+    CUDA::cudart
+)
+
+target_compile_options(
+    sgemm_dispatch
+    PRIVATE
+    $<$<COMPILE_LANGUAGE:CUDA>:-O3>
+    $<$<COMPILE_LANGUAGE:CUDA>:-lineinfo>
+    $<$<COMPILE_LANGUAGE:CUDA>:-Xptxas=-v>
+)
+
+set_target_properties(
+    sgemm_dispatch
+    PROPERTIES
+    POSITION_INDEPENDENT_CODE ON
+    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+)
+
+add_executable(
+    sgemm_stage78_library_smoke
+    tests/sgemm_stage78_library_smoke.cu
+)
+
+target_link_libraries(
+    sgemm_stage78_library_smoke
+    PRIVATE
+    sgemm_dispatch
+    CUDA::cudart
+)
+
+target_compile_options(
+    sgemm_stage78_library_smoke
+    PRIVATE
+    $<$<COMPILE_LANGUAGE:CUDA>:-O3>
+    $<$<COMPILE_LANGUAGE:CUDA>:-lineinfo>
+)
+
+include(GNUInstallDirs)
+
+install(
+    TARGETS sgemm_dispatch
+    EXPORT sgemm_dispatchTargets
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)
+
+install(
+    FILES
+    include/sgemm_dispatch.h
+    include/cuda_check.h
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)
+
+install(
+    EXPORT sgemm_dispatchTargets
+    FILE sgemm_dispatchTargets.cmake
+    NAMESPACE cuda_sgemm::
+    DESTINATION
+    ${CMAKE_INSTALL_LIBDIR}/cmake/sgemm_dispatch
+)

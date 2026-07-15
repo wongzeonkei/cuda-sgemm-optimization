@@ -1,0 +1,7 @@
+===== Public API symbols =====
+0000000000000010 T sgemm_kernel_name(SgemmKernelKind)
+0000000000000040 T select_sgemm_kernel(float const*, float const*, int, int, int)
+00000000000000d0 T launch_sgemm_dispatch(float const*, float const*, float*, int, int, int, CUstream_st*, SgemmDispatchInfo*)
+
+===== Forbidden symbols =====
+No benchmark/main/cuBLAS symbols found.

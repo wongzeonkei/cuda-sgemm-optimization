@@ -1,0 +1,20 @@
+========= COMPUTE-SANITIZER
+========================================
+Stage 7.8 Static Library Smoke Test
+========================================
+M = 127
+N = 132
+K = 116
+Alignment mode = misalign-a
+A address = 0x130f800004
+B address = 0x130f80e800
+Dimensions float4 compatible = true
+Pointers 16-byte aligned = false
+Float4 safe = false
+Selected kernel = scalar_single_buffer
+Mean latency = 0.748544 ms
+Performance = 5.195751 GFLOPS
+Expected value = 116.000000
+Max abs error = 0.000000
+Mismatches = 0
+========= ERROR SUMMARY: 0 errors
