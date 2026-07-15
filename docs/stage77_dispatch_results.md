@@ -82,15 +82,19 @@ All tests completed with:
 
 ```text
 ERROR SUMMARY: 0 errors
-Conclusion
+```
+
+## Conclusion
 
 The final runtime policy is:
 
+```text
 float4-compatible dimensions and 16-byte-aligned pointers
     -> float4 double-buffer kernel
 
 otherwise
     -> scalar single-buffer kernel
+```
 
 The dispatcher preserves correctness and memory safety for aligned,
 unaligned, tile-boundary, and pointer-offset inputs.
