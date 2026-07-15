@@ -1,0 +1,36 @@
+========================================
+Stage 7.7 SGEMM Kernel Dispatcher
+========================================
+M = 4096
+N = 4096
+K = 4096
+Alignment mode = aligned
+A address = 0x130f800000
+B address = 0x1313a00000
+Dimensions float4 compatible = true
+Pointers 16-byte aligned = true
+Float4 safe = true
+Selected kernel = float4_double_buffer
+Registers per thread = 128
+Shared memory = 16640 bytes
+Local memory = 0 bytes
+Warmup = 5
+Iterations = 20
+
+Dispatched SGEMM
+  Mean latency: 7.629312 ms
+  Performance:  18014.593292 GFLOPS
+
+cuBLAS Pedantic FP32
+  Mean latency: 6.354995 ms
+  Performance:  21626.916788 GFLOPS
+
+Dispatch/cuBLAS ratio: 83.297094%
+
+Correctness
+  Max abs error:  0.0000000000e+00
+  Mean abs error: 0.0000000000e+00
+  Max rel error:  0.0000000000e+00
+  Mismatches:     0
+
+Saved CSV: results/stage77_dispatch_4096.csv

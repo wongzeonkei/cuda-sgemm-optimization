@@ -1,0 +1,2 @@
+implementation,M,N,K,alignment_mode,dimensions_float4_compatible,pointers_16byte_aligned,float4_safe,registers_per_thread,shared_bytes,local_memory_bytes,warmup,iterations,mean_latency_ms,gflops,max_abs_error,mean_abs_error,mismatch_count,cublas_gflops,cublas_ratio_percent
+scalar_single_buffer,1000,1030,777,aligned,false,true,false,116,8320,0,10,50,0.171934,9309.5,0,0,0,15779.4,58.9979
